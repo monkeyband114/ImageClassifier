@@ -11,9 +11,9 @@ fashion_mnist = keras.datasets.fashion_mnist
 
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 
-print(train_labels[5600])
+print(train_labels[1])
 
-plt.imshow(train_images[5600], cmap='gray', vmin=0, vmax=255)
+plt.imshow(train_images[1], cmap='gray', vmin=0, vmax=255)
 
 plt.show()
 
@@ -26,4 +26,6 @@ model = keras.Sequential([
     keras.layers.Dense(units=10, activation =tf.nn.softmax)
 ])
 
-model.compile(optimizers=tf.optimizers.Adam(), loss='sparse_categorical_crossentropy')
+model.compile(optimizer=tf.optimizers.Adam(), loss='sparse_categorical_crossentropy')
+
+model.fit(train_images, train_labels, epochs=5)
