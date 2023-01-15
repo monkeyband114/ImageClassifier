@@ -18,3 +18,12 @@ plt.imshow(train_images[5600], cmap='gray', vmin=0, vmax=255)
 plt.show()
 
 
+model = keras.Sequential([
+    keras.layers.Flatten(input_shape=(28, 28)),
+    
+    keras.layers.Dense(units=128, activation=tf.nn.relu),
+    
+    keras.layers.Dense(units=10, activation =tf.nn.softmax)
+])
+
+model.compile(optimizers=tf.optimizers.Adam(), loss='sparse_categorical_crossentropy')
